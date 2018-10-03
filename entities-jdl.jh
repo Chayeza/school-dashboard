@@ -1,0 +1,74 @@
+entity Student {
+	studentId Integer required,
+    name String required,
+    surname String required,
+    sex Sex required,
+    idNumber Integer required,
+    race Race required,
+    nationality String required,
+    contact Integer required
+}
+
+entity Address {
+	studentId Integer required,
+    addressLineOne String required,
+    addressLineTwo String,
+    city String required,
+    region String required,
+    postalCode Integer required
+}
+
+entity Coarse {
+	courseId Integer required,
+    name String required,
+    duration Integer required,
+    cost Integer,
+    level YearOfStudy
+}
+
+entity Registration {
+	studentId Integer required,
+    courseId Integer required,
+    credits Integer,
+    date ZonedDateTime
+}
+
+enum Sex {
+    MALE, FEMALE
+}
+
+enum Race {
+    BLACK, WHITE, INDIAN, COLORED, OTHER
+}
+
+enum YearOfStudy {
+    ONE, TWO, THREE, PG
+}
+
+/*
+relationship OneToMany {
+	Student{studentId} to Address
+}
+
+relationship ManyToMany {
+	Student{region} to Registration
+}
+
+relationship ManyToMany {
+	Registration{region} to Coarse
+}
+*/
+
+
+// Set pagination options
+paginate Student, Coarse, Address, Registration with infinite-scroll
+paginate Registration with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Student, Coarse
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

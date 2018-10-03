@@ -1,0 +1,45 @@
+{
+    "name": "Coarse",
+    "fields": [
+        {
+            "fieldName": "courseId",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "duration",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "cost",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "level",
+            "fieldType": "YearOfStudy",
+            "fieldValues": "ONE,TWO,THREE,PG"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181003182036",
+    "entityTableName": "coarse",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
